@@ -1,0 +1,51 @@
+<%- include('./includes/head') %>
+    <body>
+<%- include('./includes/nav') %>
+        
+
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4"></div>
+                <div class="col-lg-4 my-3">
+                    <h1 class="text-center">
+                        Sign-in
+                    </h1>
+                    <p class="text-center lead">Faça login para continuar.</p>
+
+                    <%- include('./includes/messages') %>
+
+                    <div class="row">
+                        <div class="col-lg">
+
+                            <form class="form-login my-4" action="/signin/login" method="post">
+                                <input type="hidden" name="_csrf" value="<%= csrfToken %>">
+                                
+                                <div class="mb-3">
+                                    <label for="email" class="form-label">Email address</label>
+                                    <input type="email" class="form-control" name="email" id="email" aria-describedby="emailHelp">
+                                </div>
+                                <div class="mb-3">
+                                    <label for="password" class="form-label">Password</label>
+                                    <input type="password" class="form-control" name="password" id="password">
+                                    <div id="emailHelp" class="form-text"></div>
+                                </div>
+                                <div class="mb-3 form-check">
+                                    <input type="checkbox" class="form-check-input" id="remember">
+                                    <label class="form-check-label" for="remember">Check me out</label>
+                                    <div id="passwordHelp" class="form-text"></div>
+                                </div>
+                                <button type="submit" class="btn btn-primary">Login</button>
+                            </form>
+                        </div>
+                    </div>
+                        
+
+
+                </div>
+                <div class="col-lg-4"></div>
+            </div>
+        </div>
+
+<%- include('./includes/footer') %>
+    </body>
+</html>

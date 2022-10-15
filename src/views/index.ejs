@@ -1,0 +1,48 @@
+<%- include('./includes/head') %>
+    <body>
+<%- include('./includes/nav') %>
+        
+
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-2"></div>
+                <div class="col-lg-8 my-3">
+                    <h1 class="text-center">
+                        Agenda
+                    </h1>
+                    <p class="text-center lead">Your contacts are below</p>
+
+                    <%- include('./includes/messages') %>
+
+
+                    <% if (contacts.length) { %>
+                    <div class="responsive-table">
+                        <table class="table my-3">
+
+                            <% contacts.forEach(contact => { %>
+                                <tr>
+                                    <td><%= contact.firstname %></td>
+                                    <td><%= contact.lastname %></td>
+                                    <td><%= contact.phone %></td>
+                                    <td><%= contact.email %></td>
+                                    <td><a href="/contacts/index/<%= contact._id %>">Edit</a></td>
+                                    <td><a class="text-danger" href="/contacts/delete/<%= contact._id %>">Delete</a></td>
+                                    
+                                </tr>
+                            <% }); %>
+                            
+                        </table>
+                    </div>
+                    <% } else { %>
+                    <p class="text-center lead">
+                    You don't have saved contacts</p>
+                    <% } %>
+
+                </div>
+                <div class="col-lg-2"></div>
+            </div>
+        </div>
+
+<%- include('./includes/footer') %>
+    </body>
+</html>

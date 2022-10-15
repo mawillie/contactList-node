@@ -1,0 +1,50 @@
+<%- include('./includes/head') %>
+    <body>
+<%- include('./includes/nav') %>
+        
+
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4"></div>
+                <div class="col-lg-4 my-3">
+                    <h1 class="text-center">
+                        Sign-up
+                    </h1>
+                    <p class="text-center lead">Realize seu cadastro.</p>
+
+                    <%- include('./includes/messages') %>
+
+                    <div class="row">
+                        <div class="col-lg">
+
+                            <form class="form-registration my-4" action="/signup/create" method="post">
+                                <input type="hidden" name="_csrf" value="<%= csrfToken %>"> 
+
+                                <div class="mb-3">
+                                    <label for="email" class="form-label">Email address</label>
+                                    <input type="email" class="form-control" name="email" id="email" aria-describedby="emailHelp">
+                                    <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="password" class="form-label">Password</label>
+                                    <input type="password" class="form-control" name="password" id="password">
+                                    <div id="passwordHelp" class="form-text"></div>
+                                </div>
+
+                                <button type="submit" class="btn btn-primary">Create account</button>
+                            </form>
+                        </div>
+
+                        
+                    </div>
+                        
+
+
+                </div>
+                <div class="col-lg-4"></div>
+            </div>
+        </div>
+
+<%- include('./includes/footer') %>
+    </body>
+</html>
